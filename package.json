@@ -1,0 +1,16 @@
+{
+  "name": "london-gcse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sebgrebe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "xlsx": "^0.11.3"
+  }
+}
