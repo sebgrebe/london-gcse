@@ -1,5 +1,6 @@
 $.ajax({
 	url: '/data',
+	type: 'GET',
 	error: (xhr,errorType) => {
 			console.log(errorType)
 		},

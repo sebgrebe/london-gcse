@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 var XLSX = require('xlsx')
 
-const port = 8080;
+const port = process.env.PORT || 3000;
 
 app.use(express.static('app'))
 app.get( '/', function( req, res ) {
