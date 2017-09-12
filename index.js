@@ -9,7 +9,7 @@ app.get( '/', function( req, res ) {
     res.sendFile('app/index.html' );
   });
 app.get('/data',function(req,res) {
-	var workbook = XLSX.readFile('data.xlsx');
+	var workbook = XLSX.readFile('data/data.xlsx');
 	var sheet_with_areanames = workbook.Sheets['iadatasheet1'];
 	var sheet_with_gcses = workbook.Sheets['iadatasheet5'];
 	var sheet_with_income = workbook.Sheets['iadatasheet4'];
@@ -39,12 +39,4 @@ app.get('/data',function(req,res) {
 	}
 	res.send(dataset)
 })
-app.listen(port);
-
-// app.listen(port, (err) => {  
-//   if (err) {
-//     return console.log('something bad happened', err)
-//   }
-
-//   console.log(`server is listening on ${port}`)
-// })  
+app.listen(port); 
