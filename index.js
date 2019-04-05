@@ -3,6 +3,7 @@ var app = express()
 var XLSX = require('xlsx')
 
 const port = process.env.PORT || 8000;
+const host = 'localhost';
 
 app.use(express.static('app'))
 app.get( '/', function( req, res ) {
@@ -39,6 +40,6 @@ app.get('/data',function(req,res) {
 	}
 	res.send(dataset)
 })
-app.listen(port, () => {
-  console.log(`App running on port ${port}`)
+app.listen(port, host, () => {
+  console.log(`App running on http://${host}:${port}`)
 });
