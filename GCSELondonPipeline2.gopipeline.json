@@ -1,0 +1,90 @@
+{
+  "group": "defaultGroup",
+  "name": "GCSELondonPipeline2",
+  "label_template": "${COUNT}",
+  "lock_behavior": "unlockWhenFinished",
+  "timer": {
+    "spec": "0 31 11 ? * MON-FRI",
+    "only_on_changes": false
+  },
+  "environment_variables": [],
+  "parameters": [],
+  "materials": [
+    {
+      "pipeline": "GCSELondonPipeling",
+      "stage": "defaultStage",
+      "name": "upstream_pipeline",
+      "type": "dependency"
+    }
+  ],
+  "stages": [
+    {
+      "name": "defaultStage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "manual",
+        "users": [],
+        "roles": []
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "defaultJob",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": "0",
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "cmd",
+              "timeout": -1.0,
+              "arguments": [
+                "/c",
+                "echo",
+                "Pipeline2"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "source": "artifact",
+              "is_source_a_file": false,
+              "destination": "artifact_downstream",
+              "pipeline": "GCSELondonPipeling",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "artifact_origin": "gocd",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "command": "cmd",
+              "timeout": -1.0,
+              "arguments": [
+                "/c",
+                "dir /w"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "cmd",
+              "timeout": -1.0,
+              "arguments": [
+                "/c",
+                "cd artifact_downstream/artifact \u0026\u0026 dir /w"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
