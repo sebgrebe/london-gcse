@@ -4,7 +4,7 @@
   "label_template": "${COUNT}",
   "lock_behavior": "unlockWhenFinished",
   "timer": {
-    "spec": "0 27 9 ? * MON-FRI",
+    "spec": "0 32 9 ? * MON-FRI",
     "only_on_changes": false
   },
   "environment_variables": [],
