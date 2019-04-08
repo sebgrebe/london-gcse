@@ -1,7 +1,7 @@
 {
   "name": "dev",
   "pipelines": [
-    "GCSELondonPipeling",
+    "GCSELondonPipeline",
     "GCSELondonPipeline2"
   ]
 }

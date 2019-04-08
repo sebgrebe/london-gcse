@@ -11,7 +11,7 @@
   "parameters": [],
   "materials": [
     {
-      "pipeline": "GCSELondonPipeling",
+      "pipeline": "GCSELondonPipeline",
       "stage": "defaultStage",
       "name": "upstream_pipeline",
       "type": "dependency"
@@ -55,7 +55,7 @@
               "source": "artifact",
               "is_source_a_file": false,
               "destination": "artifact_downstream",
-              "pipeline": "GCSELondonPipeling",
+              "pipeline": "GCSELondonPipeline",
               "stage": "defaultStage",
               "job": "defaultJob",
               "artifact_origin": "gocd",
